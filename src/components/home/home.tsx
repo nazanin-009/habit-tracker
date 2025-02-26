@@ -1,11 +1,17 @@
 import { Card, CardActionArea, CardContent, CardMedia, Grid2, Paper, Typography } from "@mui/material";
 import homeScreen from "../../assets/images/home-screen";
 
-export default function Home(){
+interface HomeProps{
+    onPageSelect: (pageName: string ) => void
+}
+export default function Home({onPageSelect}: HomeProps){
+    const handleMenuClick=(pageName:string)=>{
+      onPageSelect(pageName);
+      }
     return <Paper>
       <Grid2 padding={2}>
       <Card>
-      <CardActionArea>
+      <CardActionArea onClick={() => {handleMenuClick('habits')}}>
         <CardMedia component='img'
         height={150}
         image={homeScreen.imageHabits}/>
@@ -21,7 +27,7 @@ export default function Home(){
       </Grid2>
       <Grid2 padding={2}>
       <Card>
-      <CardActionArea>
+      <CardActionArea onClick={()=>{ handleMenuClick('dashboard')}}>
       <CardMedia component='img'
         height={150}
         image={homeScreen.imageDashboard}/>
@@ -32,12 +38,12 @@ export default function Home(){
             </Typography>
                 
         </CardContent>
-        </CardActionArea>  
+        </CardActionArea >  
       </Card>
       </Grid2>
       <Grid2 padding={2}>
       <Card>
-      <CardActionArea>
+      <CardActionArea onClick={() => {handleMenuClick('settings')}}>
       <CardMedia component='img'
         height={150}
         image={homeScreen.imageSettings}/>
@@ -53,7 +59,7 @@ export default function Home(){
       </Grid2>
       <Grid2 padding={2}>
       <Card>
-      <CardActionArea>
+      <CardActionArea onClick={ () => {handleMenuClick('about')}}>
       <CardMedia component='img'
         height={150}
         image={homeScreen.imageAbout}/>
