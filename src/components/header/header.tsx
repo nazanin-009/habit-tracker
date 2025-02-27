@@ -9,8 +9,8 @@ interface HeaderProps{
     onLogoClick?:()=> void
 }
 export default function Header({title,onLogoClick}:HeaderProps){
-  const darkMode=useContext(DarkModeContext)
- return <AppBar position="sticky" style={{background:darkMode?'#222':undefined}}>
+  const {darkMode}=useContext(DarkModeContext)
+ return <AppBar position="sticky" style={{backgroundColor:darkMode?'#222':undefined}}>
  <Toolbar>
   <IconButton onClick={onLogoClick}>
     <img src={LogoSmall} alt="logo" />
