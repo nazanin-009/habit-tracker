@@ -6,6 +6,8 @@ import About from './components/screens/about/About';
 import { useState } from 'react';
 import DarkModeProvider, { DarkModeContext } from './data/contexts/DarkMode.context';
 import SettingsPage from './components/screens/settings/Settings';
+import HabitsPage from './components/screens/habits/HabitsPage';
+import HabitProvider from './data/contexts/HabitsDataContext';
 
 
 function App() {
@@ -18,12 +20,14 @@ function App() {
  }
   return (
     <DarkModeProvider>
+    <HabitProvider>
     <div className="App">
     <Header title='Habit Tracker' onLogoClick={goHome}/>
     {currentPage =='home' && <Home onPageSelect={changePage}/>}
     {currentPage == 'about' && <About/>}
     {currentPage == "settings" && <SettingsPage/>}
-    </div>
+    {currentPage == "habits"  && <HabitsPage/>}
+    </div></HabitProvider>
     </DarkModeProvider>
   );
 }

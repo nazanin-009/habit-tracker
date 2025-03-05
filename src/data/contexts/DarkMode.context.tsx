@@ -11,7 +11,7 @@ interface DarkModeProviderProps{
 }
 
 export default function DarkModeProvider({children}:DarkModeProviderProps){
-    const [darkMode,setDarkMode]=useState(false)
+    const [darkMode,setDarkMode]=useState(true)
     return <DarkModeContext.Provider value={{darkMode,setDarkMode}}>
         <GlobalStyles styles={{ body : { backgroundColor: darkMode ? "#444" : undefined }}} />
         {children}
